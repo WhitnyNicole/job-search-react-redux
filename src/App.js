@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './components/Home';
 import ReviewsList from './containers/ReviewsList';
 import NewReview from './components/NewReview'
 import { connect } from 'react-redux'
 import { getReviews } from './redux/actions/reviews'
+import Navbar from "./components/Navbar";
 
 class App extends React.Component {
   componentDidMount() {
@@ -18,9 +19,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/reviews" component={ReviewsList} />
-          <Route exact path="/reviews/new" component={NewReview} />
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/reviews" component={ReviewsList} />
+            <Route exact path="/reviews/new" component={NewReview} />
+          </Switch>
         </Router>
       </div>
     )
