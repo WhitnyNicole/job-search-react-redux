@@ -20,10 +20,10 @@ const Navbar = () => (
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/reviews/new">Create a Review</Link>
+          <Link to="/interviews/new">Create a Interview</Link>
         </li>
         <li>
-          <Link to="/reviews">My Reviews</Link>
+          <Link to="/interviews">My Interviews</Link>
         </li>
       </ul>
     </nav>

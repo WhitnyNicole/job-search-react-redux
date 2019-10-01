@@ -3,15 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './components/Home';
-import ReviewsList from './containers/ReviewsList';
-import NewReview from './components/NewReview'
+import InterviewsList from './containers/InterviewsList';
+import NewInterview from './components/NewInterview'
 import { connect } from 'react-redux'
-import { getReviews } from './redux/actions/reviews'
+import { getInterviews } from './redux/actions/interviews'
 import Navbar from "./components/Navbar";
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.getReviews();
+    this.props.getInterviews();
 
   }
 
@@ -22,8 +22,8 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/reviews" component={ReviewsList} />
-            <Route exact path="/reviews/new" component={NewReview} />
+            <Route exact path="/interviews" component={InterviewsList} />
+            <Route exact path="/interviews/new" component={NewInterview} />
           </Switch>
         </Router>
       </div>
@@ -33,5 +33,5 @@ class App extends React.Component {
 
 export default connect(
   null, 
-    { getReviews }
+    { getInterviews }
   )(App);

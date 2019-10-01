@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createReview } from '../redux/actions/reviews.js';
+import { createInterview } from '../redux/actions/interviews.js';
 
 
-class NewReview extends Component {
+class NewInterview extends Component {
 
     state ={
         company_name: " ",
-        phone_screen: "",
-        on_site: "",
-        offer: "",
-        asked_questions: "",
-        notes: " "
+        location: "",
+        salary: "",
+        day: "",
+        position: "",
     }
 
     handleChange = e => {
@@ -22,7 +21,7 @@ class NewReview extends Component {
 
     submit = e => {
         e.preventDefault()
-        this.props.createReview(this.state)
+        this.props.createInterview(this.state)
     }
     render() {
         return (
@@ -37,43 +36,43 @@ class NewReview extends Component {
                         value={this.state.company_name} 
                     />
                     <br />
-                    <label>Phone Screen?</label>
+                    <label>Location?</label>
                     <input
                         onChange={this.handleChange}
                         type="text"
                         required
-                        name="phone_screen" 
-                        value={this.state.phone_screen} 
+                        name="location" 
+                        value={this.state.location} 
                     />
                     
-                    <label>On Site?</label>
+                    <label>Salary?</label>
                     <input
                         onChange={this.handleChange}
                         type="text"
                         required 
-                        name="on_site" 
-                        value={this.state.on_site} 
+                        name="salary" 
+                        value={this.state.salary} 
                     />
                     
-                    <label>Asked Questions?</label>
+                    <label>Day?</label>
                     <input
                         onChange={this.handleChange}
                         type="text"
                         required 
-                        name="asked_questions" 
-                        value={this.state.asked_questions} 
+                        name="day" 
+                        value={this.state.day} 
                     />
                     <br />
-                    <label>Notes?</label>
+                    <label>Position?</label>
                     <input
                         onChange={this.handleChange}
                         type="text"
                         required 
-                        name="notes" 
-                        value={this.state.notes} 
+                        name="position" 
+                        value={this.state.position} 
                     />
                     <br />
-                <button type="submit">Create Review</button>
+                <button type="submit">Create Interview</button>
                 </form>
             </div>
         )
@@ -81,5 +80,5 @@ class NewReview extends Component {
 }
 
 export default connect(null, {
-    createReview
-})(NewReview)
+    createInterview
+})(NewInterview)
