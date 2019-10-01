@@ -1,7 +1,7 @@
 export default (state = [], action) => {
     switch(action.type) {
         case "FETCH_INTERVIEWS_SUCCESS":
-            return action.reviews
+            return action.interviews
         case "INTERVIEW_CREATE_SUCCESS":
             return [...state, action.payload];
         default: 
