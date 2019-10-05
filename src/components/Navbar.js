@@ -25,6 +25,9 @@ const Navbar = () => (
         <li>
           <Link to="/interviews">My Interviews</Link>
         </li>
+        <li>
+          <Link to="/reviews">My Reviews</Link>
+        </li>
       </ul>
     </nav>
   </StyledNav>
