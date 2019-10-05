@@ -4,15 +4,18 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './components/Home';
 import InterviewsList from './containers/InterviewsList';
+import ReviewsList from './containers/ReviewsList';
+import NewReview from './components/NewReview'
 import NewInterview from './components/NewInterview'
 import { connect } from 'react-redux'
 import { getInterviews } from './redux/actions/interviews'
+import { getReviews } from './redux/actions/reviews'
 import Navbar from "./components/Navbar";
 
 class App extends React.Component {
   componentDidMount() {
     this.props.getInterviews();
-
+    this.props.getReviews();
   }
 
   render() {
@@ -24,6 +27,8 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/interviews" component={InterviewsList} />
             <Route exact path="/interviews/new" component={NewInterview} />
+            <Route exact path="/reviews" component={ReviewsList} />
+            <Route exact path="/reviews/new" component={NewReview} />
           </Switch>
         </Router>
       </div>
@@ -33,5 +38,5 @@ class App extends React.Component {
 
 export default connect(
   null, 
-    { getInterviews }
+    { getReviews, getInterviews }
   )(App);
