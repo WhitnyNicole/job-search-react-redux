@@ -7,7 +7,7 @@ const fetchInterviews = (interviews) => {
 
 export const getInterviews = () => {
     return function(dispatch) {
-    return fetch(`http://localhost:3001/interviews`)
+    return fetch(`http://localhost:3001/api/v1/interviews`)
         .then(res => res.json())
         .then(interviews => dispatch(fetchInterviews(interviews)))
     };
@@ -16,7 +16,7 @@ export const getInterviews = () => {
 export const createInterview = (interviewObject) => {
     const interviewToCreate = { interview: interviewObject };
     return dispatch => {
-            fetch(`http://localhost:3001/interviews`, {
+            fetch(`http://localhost:3001/api/v1/interviews`, {
                 method: 'POST',
                 headers: {
                     Accept: "application/json",
