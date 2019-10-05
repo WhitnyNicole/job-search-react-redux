@@ -20,7 +20,7 @@ class InterviewsList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        interviews: state
+        interviews: state.interviews
     }
 }
 

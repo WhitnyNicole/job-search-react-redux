@@ -20,7 +20,7 @@ class ReviewsList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        reviews: state
+        reviews: state.reviews
     }
 }
 
