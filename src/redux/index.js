@@ -1,14 +1,14 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import interviewsReducer from './reducers/interviews';
-import reviewsReducer from './reducers/reviews';
+import interviews from './reducers/interviews';
+import reviews from './reducers/reviews';
 
-// const reducer = combineReducers({
-//     interviews: interviewsReducer,
-//     reviews: reviewsReducer 
-// })
+const reducer = combineReducers({
+    interviews,
+    reviews
+})
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-let store = createStore(interviewsReducer, composeEnhancer(applyMiddleware(thunk)));
+let store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)));
 
  export default store; 
