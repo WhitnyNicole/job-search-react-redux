@@ -12,7 +12,8 @@ class InterviewsList extends Component {
         return (
             <div>
                 <h1> Interviews List </h1>
-                {this.props.interviews.map(interview => (<p key={interview.id}><Link to={`/interviews/${interview.id}`}>{interview.company_name}: {interview.position}</Link></p>
+                {this.props.interviews.map(interview => (<p key={interview.id}><Link to={`/interviews/${interview.id}`}>{interview.company_name}: {interview.position}</Link><InterviewInfo interview={
+                    interview} /></p>
                 ))}
             </div>
         )      
