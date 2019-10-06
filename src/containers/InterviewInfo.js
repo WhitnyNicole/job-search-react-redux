@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const InterviewInfo = ({ interview }) => {
     return (
         interview ?
