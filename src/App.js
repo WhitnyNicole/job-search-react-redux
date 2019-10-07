@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import { getInterviews } from './redux/actions/interviews'
 import { getReviews } from './redux/actions/reviews'
 import Navbar from "./components/Navbar";
+import InterviewInfo from './containers/InterviewInfo'
 
 class App extends React.Component {
   componentDidMount() {
@@ -25,10 +26,11 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/interviews" component={InterviewsList} />
+            <Route exact path="/interviews" render={(routerProps) => <InterviewsList {...routerProps}/>} />
             <Route exact path="/interviews/new" component={NewInterview} />
             <Route exact path="/reviews" component={ReviewsList} />
             <Route exact path="/reviews/new" component={NewReview} />
+            <Route path='/interviews/:id' component={InterviewInfo} />
           </Switch>
         </Router>
       </div>
