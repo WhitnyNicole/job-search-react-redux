@@ -10,13 +10,13 @@ class NewReview extends Component {
         answer: "",
     }
 
-    handleChange = e => {
+    handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    submit = e => {
+    submit(e) {
         e.preventDefault()
         this.props.createReview(this.state)
     }
