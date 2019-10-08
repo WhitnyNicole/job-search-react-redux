@@ -13,13 +13,13 @@ class NewInterview extends Component {
         position: "",
     }
 
-    handleChange(e) {
+    handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    submit(e) {
+    submit = e => {
         e.preventDefault()
         this.props.createInterview(this.state)
     }
