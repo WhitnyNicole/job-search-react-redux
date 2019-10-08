@@ -12,6 +12,7 @@ import { getInterviews } from './redux/actions/interviews'
 import { getReviews } from './redux/actions/reviews'
 import Navbar from "./components/Navbar";
 import InterviewInfo from './containers/InterviewInfo'
+import ReviewInfo from './containers/ReviewInfo'
 
 class App extends React.Component {
   componentDidMount() {
@@ -28,9 +29,10 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/interviews" render={(routerProps) => <InterviewsList {...routerProps}/>} />
             <Route exact path="/interviews/new" component={NewInterview} />
-            <Route exact path="/reviews" component={ReviewsList} />
+            <Route exact path="/reviews" render={(routerProps) => <ReviewsList {...routerProps}/>} />
             <Route exact path="/reviews/new" component={NewReview} />
             <Route path='/interviews/:id' component={InterviewInfo} />
+            <Route path='/reviews/:id' component={ReviewInfo} />
           </Switch>
         </Router>
       </div>
