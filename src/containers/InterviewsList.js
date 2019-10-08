@@ -6,7 +6,7 @@ import InterviewInfo from './InterviewInfo.js'
 class InterviewsList extends Component {
 
     render() {
-        if (this.props.interviews.length == 0) {
+        if (this.props.interviews.length === 0) {
             return <p>Loading...</p>
         }
         return (
@@ -14,7 +14,7 @@ class InterviewsList extends Component {
                 <h1> Interviews List </h1>
                 {this.props.interviews.map(interview => (<p key={interview.id}><Link to={`/interviews/${interview.id}`}>{interview.company_name}: {interview.position}</Link></p>
                 ))}
-        <Route path={`${this.props.match.url}/:interviewId`} render={(routerProps) => <InterviewInfo {...routerProps}/>}/>
+                <Route path={`${this.props.match.url}/:interviewId`} render={(routerProps) => <InterviewInfo interviews={this.props.interviews} {...routerProps}/>}/>
             </div>
         )      
     }
