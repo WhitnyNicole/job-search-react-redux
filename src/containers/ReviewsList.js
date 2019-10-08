@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
+import ReviewInfo from  './ReviewInfo.js'
+
 class ReviewsList extends Component {
 
     render() {
@@ -12,6 +14,7 @@ class ReviewsList extends Component {
                 <h1> Reviews List </h1>
                 {this.props.reviews.map(review => (<p key={review.id}><Link to={`/reviews/${review.id}`}>{review.interview.company_name}:{review.inquiry}</Link></p>
                 ))}
+                <Route path={`${this.props.match.url}/:reviewId`} render={(routerProps) => <ReviewInfo {...routerProps}/>}/>
             </div>
         )      
     }
