@@ -6,7 +6,7 @@ const fetchReviews = (reviews) => {
 }
 
 export const getReviews = () => {
-    return function(dispatch) {
+    return dispatch => {
     return fetch(`http://localhost:3001/api/v1/reviews`)
         .then(res => res.json())
         .then(reviews => dispatch(fetchReviews(reviews)))

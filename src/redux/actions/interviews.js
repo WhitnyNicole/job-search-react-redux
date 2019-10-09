@@ -6,7 +6,7 @@ const fetchInterviews = (interviews) => {
 }
 
 export const getInterviews = () => {
-    return function(dispatch) {
+    return dispatch => {
     return fetch(`http://localhost:3001/api/v1/interviews`)
         .then(res => res.json())
         .then(interviews => dispatch(fetchInterviews(interviews)))
