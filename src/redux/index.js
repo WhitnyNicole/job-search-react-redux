@@ -1,13 +1,13 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import interviews from './reducers/interviews';
-import reviews from './reducers/reviews';
-import users from './reducers/users';
+import interviewsReducer from './reducers/interviews';
+import reviewsReducer from './reducers/reviews';
+import usersReducer from './reducers/users';
 
 const reducer = combineReducers({
-    interviews,
-    reviews,
-    users
+    interviewsReducer,
+    reviewsReducer,
+    usersReducer
 })
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
