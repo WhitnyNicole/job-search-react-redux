@@ -1,37 +1,26 @@
 import React from 'react'
-import { isFlow } from '@babel/types'
+import { connect } from 'react-redux'
 
-// const InterviewInfo = ({ interview }) => {
-//     return (
-//         interview ?
-//             <div>
-//                 <h2>{interview.company_name}</h2>
-//                 <p>{interview.location}</p>
-//                 <p>{interview.position}</p>
-//             </div> :
-//             <p>No interview info yet! </p>
-//     )
-// }
-
-const InterviewInfo = (props) => {
-    debugger
-
-//    info = props.interviews.find(interview => interview.id === props.match.params.id)
-
-//if else 
-//handle cases when no object is found
-//set variable outside of the if/else 
-
-//flow of redux: component -> action -> rails and then rails -> action -> reducer -> state/store component
-
+function InterviewInfo(props) {
+    if (!props.interview) {
+        return <p>Loading...</p>
+    }
     return (
         <div>
-            <p>No interview info yet! </p>
+            <h1>Interview Info</h1>
+            {props.interview.company_name}
         </div>
     )
 }
 
-export default InterviewInfo
+const mapStateToProps = (state, props) => {
+    const id = props.match.params.id
+    debugger
+    const interview = state.interviews.filter(interview => interview.id === id)[0]
+    console.log(props.interview)
+    return {
+        interview,
+    }
+}
 
-// props.match.params.id
-//props.match.url
+export default connect(mapStateToProps)(InterviewInfo)
