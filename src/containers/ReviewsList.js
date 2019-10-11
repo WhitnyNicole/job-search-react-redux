@@ -5,17 +5,22 @@ import { Link } from 'react-router-dom'
 class ReviewsList extends Component {
 
     render() {
+        let reviewsList;
         if (this.props.reviews.length === 0) {
             return <p>Loading...</p>
+        } else{
+            reviewsList = this.props.reviews.map(review => {
+               return ( <p key={review.id}>
+                    <Link to={`/reviews/${review.id}`}>{review.interview.company_name} - {review.inquiry}</Link>
+                </p>
+               )
+            })
         }
+
         return (
             <div>
-                <h1> Review List</h1>
-                {this.props.reviews.map(review => (
-                    <p key={review.id}>
-                        <Link to={`/reviews/${review.id}`}>{review.interview.company_name} - {review.inquiry}</Link>
-                    </p>
-                ))}
+                <h1> Reviews List</h1>
+                {reviewsList}
             </div>
         )   
     }
@@ -23,7 +28,7 @@ class ReviewsList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        reviews: state.reviews
+        reviews: state.reviewsReducer.reviews
     }
 }
 
