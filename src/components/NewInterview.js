@@ -21,7 +21,7 @@ class NewInterview extends Component {
 
     submit = e => {
         e.preventDefault()
-        this.props.createInterview(this.state)
+        this.props.createInterview(this.state, this.props.history)
     }
     render() {
         return (

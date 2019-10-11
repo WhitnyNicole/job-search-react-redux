@@ -18,7 +18,7 @@ class NewReview extends Component {
 
     submit = e => {
         e.preventDefault()
-        this.props.createReview(this.state)
+        this.props.createReview(this.state, this.props.history)
     }
     render() {
         return (
