@@ -8,18 +8,18 @@ function ReviewInfo(props) {
     return (
         <div>
             <h1>Review Info</h1>
-            {props.review.inquiry}
+            <p>Inquiry: {props.review.inquiry}</p>
+            <p>Answer: {props.review.answer}</p>
         </div>
     )
 }
 
 const mapStateToProps = (state, props) => {
-    const id = props.match.params.id
-    debugger
-    const review = state.reviews.filter(review => review.id === id)[0]
+    const id = parseInt(props.match.params.id)
+    const review = state.reviewsReducer.reviews.find(review => review.id === id)
     console.log(props.review)
     return {
-        review,
+        review
     }
 }
 
