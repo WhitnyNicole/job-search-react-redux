@@ -1,25 +1,26 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-// const ReviewInfo = ({ review }) => {
-//     return (
-//         interview ?
-//             <div>
-//                 <h2>{review.inquiry}</h2>
-//                 <p>{review.answer}</p>
-//             </div> :
-//             <p>No review info yet! </p>
-//     )
-// }
-
-const ReviewInfo = (props) => {
-    debugger
+function ReviewInfo(props) {
+    if (!props.review) {
+        return <p>Loading...</p>
+    }
     return (
         <div>
-            <p>No Review info yet! </p>
+            <h1>Review Info</h1>
+            {props.review.inquiry}
         </div>
     )
 }
 
-export default ReviewInfo
+const mapStateToProps = (state, props) => {
+    const id = props.match.params.id
+    debugger
+    const review = state.reviews.filter(review => review.id === id)[0]
+    console.log(props.review)
+    return {
+        review,
+    }
+}
 
-// props.match.params.id
+export default connect(mapStateToProps)(ReviewInfo)
