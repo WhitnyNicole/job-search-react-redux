@@ -8,18 +8,20 @@ function InterviewInfo(props) {
     return (
         <div>
             <h1>Interview Info</h1>
-            {props.interview.company_name}
+            <p>Company: {props.interview.company_name}</p>
+            <p>Location: {props.interview.location}</p>
+            <p>Position: {props.interview.position}</p>
+            <p>Salary: {props.interview.salary}</p>
+            <p>Day: {props.interview.day}</p>
         </div>
     )
 }
 
 const mapStateToProps = (state, props) => {
-    const id = props.match.params.id
-    debugger
-    const interview = state.interviews.filter(interview => interview.id === id)[0]
-    console.log(props.interview)
+    const id = parseInt(props.match.params.id)
+    const interview = state.interviewsReducer.interviews.find(interview => interview.id === id)
     return {
-        interview,
+        interview
     }
 }
 
