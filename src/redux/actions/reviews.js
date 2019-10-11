@@ -13,7 +13,7 @@ export const getReviews = () => {
     };
 };
 
-export const createReview = (reviewObject) => {
+export const createReview = (reviewObject, history) => {
     const reviewToCreate = { review: reviewObject };
     return dispatch => {
             fetch(`http://localhost:3001/api/v1/reviews`, {
@@ -22,14 +22,15 @@ export const createReview = (reviewObject) => {
                     Accept: "application/json",
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({reviewToCreate})
+                body: JSON.stringify(reviewToCreate)
             })
             .then(res => res.json())
-            .then(review => 
+            .then(review => {
                 dispatch({
                     type: 'REVIEW_CREATE_SUCCESS', 
                     payload: review
                 })
+                return history.pushState(`/reviews`)}
             )
         }
 }

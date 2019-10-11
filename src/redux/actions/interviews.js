@@ -13,7 +13,7 @@ export const getInterviews = () => {
     };
 };
 
-export const createInterview = (interviewObject) => {
+export const createInterview = (interviewObject, history) => {
     const interviewToCreate = { interview: interviewObject };
     return dispatch => {
             fetch(`http://localhost:3001/api/v1/interviews`, {
@@ -22,14 +22,15 @@ export const createInterview = (interviewObject) => {
                     Accept: "application/json",
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({interviewToCreate})
+                body: JSON.stringify(interviewToCreate)
             })
             .then(res => res.json())
-            .then(interview => 
+            .then(interview => {
                 dispatch({
                     type: 'INTERVIEW_CREATE_SUCCESS', 
                     payload: interview
                 })
+                return history.push(`/interviews`)} 
             )
         }
 }
