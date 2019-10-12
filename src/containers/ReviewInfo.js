@@ -22,6 +22,7 @@ function ReviewInfo(props) {
             <Title>
                 <div>
                     <h1>Review Info</h1>
+                    <p>A review for {props.review.interview.company_name}</p>
                     <p>Inquiry: {props.review.inquiry}</p>
                     <p>Answer: {props.review.answer}</p>
                 </div>
