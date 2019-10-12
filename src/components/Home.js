@@ -16,8 +16,16 @@ const Wrapper = styled.section`
 const Home = () => (
     <Wrapper>
         <Title>
-            <h1>Home page</h1>
+            <h1>Job Search App</h1>
+            <br />
+            <p>Welcome! Use this app as cental hub to store all job related resources!</p>
+            <br />
+            <br />
         </Title>
+        <h1>Helpful Resources:</h1>
+       <a href="https://teamcandor.com/salary/guide/">Salary Guide</a><br />
+       <a href="https://leetcode.com/">Code Challenges</a><br />
+       <a href="https://www.pramp.com/#/">Interview Practice</a>
     </Wrapper>
 )
 
