@@ -47,7 +47,7 @@ class NewReview extends Component {
                     <div>
                         <h1>Create your Review!</h1>
                         <form onSubmit={this.submit}>
-                            <label>Inquiry?</label>
+                            <label>Inquiry:</label>
                             <input 
                                 onChange={this.handleChange}
                                 required 
@@ -56,7 +56,7 @@ class NewReview extends Component {
                                 value={this.state.inquiry} 
                             />
                             <br />
-                            <label>Answer?</label>
+                            <label>Answer:</label>
                             <input
                                 onChange={this.handleChange}
                                 type="text"
