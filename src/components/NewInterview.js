@@ -1,7 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createInterview } from '../redux/actions/interviews.js';
+import styled from "styled-components"
 
+const Title = styled.h1`
+  font-size: 15px;
+  text-align: center;
+  color: palevioletred;
+`;
+
+const Wrapper = styled.section`
+  padding: 4em;
+  background: seashell;
+`;
+
+const Button = styled.button`
+  display: inline-block;
+  color: palevioletred;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
 
 class NewInterview extends Component {
 
@@ -25,7 +45,10 @@ class NewInterview extends Component {
     }
     render() {
         return (
+            <Wrapper>
+                <Title>
             <div>
+                <h1>Create an Interview!</h1>
                 <form onSubmit={this.submit}>
                     <label>Company Name:</label>
                     <input 
@@ -44,7 +67,7 @@ class NewInterview extends Component {
                         name="location" 
                         value={this.state.location} 
                     />
-                    
+                    <br />
                     <label>Salary?</label>
                     <input
                         onChange={this.handleChange}
@@ -53,7 +76,7 @@ class NewInterview extends Component {
                         name="salary" 
                         value={this.state.salary} 
                     />
-                    
+                    <br />
                     <label>Day?</label>
                     <input
                         onChange={this.handleChange}
@@ -72,9 +95,12 @@ class NewInterview extends Component {
                         value={this.state.position} 
                     />
                     <br />
-                <button type="submit">Create Interview</button>
+                    <br />
+                <Button align="center" type="submit">Create Interview</Button>
                 </form>
             </div>
+            </Title>
+            </Wrapper>
         )
     }
 }

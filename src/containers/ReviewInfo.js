@@ -1,16 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from "styled-components"
+
+const Title = styled.h1`
+  font-size: 15px;
+  text-align: center;
+  color: palevioletred;
+`;
+
+const Wrapper = styled.section`
+  padding: 4em;
+  background: seashell;
+`;
 
 function ReviewInfo(props) {
     if (!props.review) {
         return <p>Loading...</p>
     }
     return (
-        <div>
-            <h1>Review Info</h1>
-            <p>Inquiry: {props.review.inquiry}</p>
-            <p>Answer: {props.review.answer}</p>
-        </div>
+        <Wrapper>
+            <Title>
+                <div>
+                    <h1>Review Info</h1>
+                    <p>Inquiry: {props.review.inquiry}</p>
+                    <p>Answer: {props.review.answer}</p>
+                </div>
+            </Title>
+        </Wrapper>
     )
 }
 
