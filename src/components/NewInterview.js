@@ -59,7 +59,7 @@ class NewInterview extends Component {
                         value={this.state.company_name} 
                     />
                     <br />
-                    <label>Location?</label>
+                    <label>Location:</label>
                     <input
                         onChange={this.handleChange}
                         type="text"
@@ -68,7 +68,7 @@ class NewInterview extends Component {
                         value={this.state.location} 
                     />
                     <br />
-                    <label>Salary?</label>
+                    <label>Salary:</label>
                     <input
                         onChange={this.handleChange}
                         type="text"
@@ -77,7 +77,7 @@ class NewInterview extends Component {
                         value={this.state.salary} 
                     />
                     <br />
-                    <label>Day?</label>
+                    <label>Date:</label>
                     <input
                         onChange={this.handleChange}
                         type="text"
@@ -86,7 +86,7 @@ class NewInterview extends Component {
                         value={this.state.day} 
                     />
                     <br />
-                    <label>Position?</label>
+                    <label>Position:</label>
                     <input
                         onChange={this.handleChange}
                         type="text"
