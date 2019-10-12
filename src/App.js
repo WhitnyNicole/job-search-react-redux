@@ -13,7 +13,7 @@ import { getReviews } from './redux/actions/reviews'
 import Navbar from "./components/Navbar";
 import InterviewInfo from './containers/InterviewInfo'
 import ReviewInfo from './containers/ReviewInfo'
-
+import Footer from './components/Footer'
 class App extends React.Component {
   componentDidMount() {
     this.props.getInterviews();
@@ -35,6 +35,7 @@ class App extends React.Component {
             <Route exact path="/reviews/:id" component={ReviewInfo} />
           </Switch>
         </Router>
+        <Footer />
       </div>
     )
   };
