@@ -2,24 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createReview } from '../redux/actions/reviews.js';
 import styled from "styled-components"
+import Button from 'react-bootstrap/Button';
 
 const Title = styled.h1`
   font-size: 15px;
   text-align: center;
-  color: palevioletred;
+  color: black;
 `;
 
 const Wrapper = styled.section`
   padding: 4em;
-`;
-
-const Button = styled.button`
-  display: inline-block;
-  color: palevioletred;
-  font-size: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
 `;
 
 class NewReview extends Component {
@@ -28,7 +20,8 @@ class NewReview extends Component {
         super(props)
         this.state = {
             inquiry: " ",
-            answer: " "
+            answer: " ",
+            interview: props.interview
     }
 }
 
@@ -38,14 +31,22 @@ class NewReview extends Component {
         })
     }
 
+    // submit = e => {
+    //     e.preventDefault()
+    //     this.props.createReview(this.state, this.props.history)
+    // }
+
     submit = e => {
         e.preventDefault()
-        this.props.createReview(this.state, this.props.history)
-        this.setState({
-            inquiry: " ",
-            answer: " "
-        })
-    }
+        const { interview } = this.props;
+        //check that the interview is being passed down as a prop
+        let newState = {
+          ...this.state,
+          interview: interview
+          };
+        this.props.createReview(this.newState, this.props.history)
+        }
+
 
     render() {
         return (
@@ -82,6 +83,13 @@ class NewReview extends Component {
     }
 }
 
-export default connect(null, {
+const mapStateToProps = state => {
+    return {
+      interview: state.interviewsReducer.interview
+    };
+  };
+
+
+export default connect(mapStateToProps, {
     createReview
 })(NewReview)

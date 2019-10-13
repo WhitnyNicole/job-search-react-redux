@@ -2,24 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createInterview } from '../redux/actions/interviews.js';
 import styled from "styled-components"
+import Button from 'react-bootstrap/Button';
 
 const Title = styled.h1`
   font-size: 15px;
   text-align: center;
-  color: palevioletred;
+  color: black;
 `;
 
 const Wrapper = styled.section`
   padding: 4em;
-`;
-
-const Button = styled.button`
-  display: inline-block;
-  color: palevioletred;
-  font-size: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
 `;
 
 class NewInterview extends Component {

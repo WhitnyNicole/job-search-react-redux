@@ -14,6 +14,8 @@ import Navbar from "./components/Navbar";
 import InterviewInfo from './containers/InterviewInfo'
 import ReviewInfo from './containers/ReviewInfo'
 import Footer from './components/Footer'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 class App extends React.Component {
   componentDidMount() {
     this.props.getInterviews();

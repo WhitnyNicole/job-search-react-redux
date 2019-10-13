@@ -14,8 +14,7 @@ var style = {
 
 const Footer = () => (
     <div style={style}>
-        <p><a href="https://github.com/WhitnyNicole/job-search-react-redux">Github Frontend Repo</a></p>
-          <p><a href="https://github.com/WhitnyNicole/job-search">Github Backend Repo</a></p>
+        <p><a href="https://github.com/WhitnyNicole/job-search-react-redux">Github Frontend Repo</a> - <a href="https://github.com/WhitnyNicole/job-search">Github Backend Repo</a></p>
       </div>
 );
 
