@@ -25,10 +25,14 @@ const Button = styled.button`
 
 class NewReview extends Component {
 
-    state ={
-        inquiry: " ",
-        answer: "",
+    constructor(props) {
+        debugger
+        super(props)
+        this.state = {
+            inquiry: " ",
+            answer: " "
     }
+}
 
     handleChange = e => {
         this.setState({
@@ -38,8 +42,13 @@ class NewReview extends Component {
 
     submit = e => {
         e.preventDefault()
-        this.props.createReview(this.state, this.props.history)
+        this.props.createReview(this.state, this.props.interview.id, this.props.history)
+        this.setState({
+            inquiry: " ",
+            answer: " "
+        })
     }
+
     render() {
         return (
             <Wrapper>
