@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from "styled-components"
+import NewReview from "../components/NewReview"
+import ReviewsList from './ReviewsList';
 
 const Title = styled.h1`
   font-size: 15px;
@@ -14,6 +16,7 @@ const Wrapper = styled.section`
 `;
 
 function InterviewInfo(props) {
+
     if (!props.interview) {
         return <p>Loading...</p>
     }
@@ -28,6 +31,8 @@ function InterviewInfo(props) {
                     <p>Position: {props.interview.position}</p>
                     <p>Salary: {props.interview.salary}</p>
                     <p>Day: {props.interview.day}</p>
+                    <ReviewsList interview={props.interview} />
+                    <NewReview interview={props.interview}/>
                 </div>
             </Title>
         </Wrapper>
