@@ -21,8 +21,7 @@ function ReviewInfo(props) {
         <Wrapper>
             <Title>
                 <div>
-                    <h1>Review Info</h1>
-                    <p>A review for {props.review.interview.company_name}</p>
+                    <h1>{props.review.interview.company_name} Review</h1>
                     <p>Inquiry: {props.review.inquiry}</p>
                     <p>Answer: {props.review.answer}</p>
                 </div>
