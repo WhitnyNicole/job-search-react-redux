@@ -11,7 +11,6 @@ const Title = styled.h1`
 
 const Wrapper = styled.section`
   padding: 4em;
-  background: seashell;
 `;
 
 const Button = styled.button`
@@ -26,7 +25,6 @@ const Button = styled.button`
 class NewReview extends Component {
 
     constructor(props) {
-        debugger
         super(props)
         this.state = {
             inquiry: " ",
@@ -42,7 +40,7 @@ class NewReview extends Component {
 
     submit = e => {
         e.preventDefault()
-        this.props.createReview(this.state, this.props.interview.id, this.props.history)
+        this.props.createReview(this.state, this.props.history)
         this.setState({
             inquiry: " ",
             answer: " "
