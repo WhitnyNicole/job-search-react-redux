@@ -1,4 +1,5 @@
 export default (state = { reviews: [] }, action) => {
+    debugger
     switch(action.type) {
         case "FETCH_REVIEWS_SUCCESS":
             return {...state, reviews: [...state.reviews, ...action.reviews] }
