@@ -23,7 +23,7 @@ class ReviewsList extends Component {
         } else{
             reviewsList = this.props.reviews.map(review => {
                return ( <p key={review.id}>
-                    <Link to={`/reviews/${review.id}`}>{review.interview.company_name} - {review.inquiry}</Link>
+                    {review.interview.company_name}: <Link to={`/reviews/${review.id}`}>{review.inquiry}</Link>
                 </p>
                )
             })
