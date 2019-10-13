@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from "styled-components"
-import NewReview from "../components/NewReview"
-import ReviewsList from './ReviewsList';
 
 const Title = styled.h1`
   font-size: 15px;
@@ -15,36 +13,41 @@ const Wrapper = styled.section`
   background: seashell;
 `;
 
-function InterviewInfo(props) {
+class InterviewInfo extends Component {
 
-    if (!props.interview) {
-        return <p>Loading...</p>
+    render() {
+        const { interview, loading } = this.props  
+        if (loading && !interview) {
+            return <p>Loading...</p>
+        }
+        if (!loading && !interview) {
+            return <p> No Interview Yet!</p>
+        }
+
+        return (
+            <Wrapper>
+                <Title>
+                    <div>
+                        <h1>Interview Info</h1>
+                        <p>Company: {interview.company_name}</p>
+                        <p>Location: {interview.location}</p>
+                        <p>Position: {interview.position}</p>
+                        <p>Salary: {interview.salary}</p>
+                        <p>Day: {interview.day}</p>
+                    </div>
+                </Title>
+            </Wrapper>
+        )
     }
-
-    return (
-        <Wrapper>
-            <Title>
-                <div>
-                    <h1>Interview Info</h1>
-                    <p>Company: {props.interview.company_name}</p>
-                    <p>Location: {props.interview.location}</p>
-                    <p>Position: {props.interview.position}</p>
-                    <p>Salary: {props.interview.salary}</p>
-                    <p>Day: {props.interview.day}</p>
-                    <ReviewsList interview={props.interview} />
-                    <NewReview interview={props.interview}/>
-                </div>
-            </Title>
-        </Wrapper>
-    )
 }
 
 const mapStateToProps = (state, props) => {
     const id = parseInt(props.match.params.id)
     const interview = state.interviewsReducer.interviews.find(interview => interview.id === id)
     return {
-        interview
+        interview,
+        loading: state.loading
     }
 }
 
-export default connect(mapStateToProps)(InterviewInfo)
+export default connect(mapStateToProps)(InterviewInfo);
