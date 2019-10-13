@@ -30,7 +30,7 @@ export const createReview = (reviewObject, history) => {
                     type: 'REVIEW_CREATE_SUCCESS', 
                     payload: review
                 })
-                return history.pushState(`/reviews`)}
+                return history.push(`/reviews`)}
             )
         }
 }
