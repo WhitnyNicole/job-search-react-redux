@@ -18,7 +18,7 @@ const Home = () => (
         <Title>
             <h1>Job Search App</h1>
             <br />
-            <p>Welcome! Use this app as cental hub to store all job related resources!</p>
+            <p>Welcome! Use this app as a cental hub to store all job related resources!</p>
             <br />
             <br />
         </Title>
