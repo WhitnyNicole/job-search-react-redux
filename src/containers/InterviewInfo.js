@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from "styled-components"
+import NewReview from "../components/NewReview"
 
 const Title = styled.h1`
   font-size: 15px;
@@ -33,6 +34,7 @@ class InterviewInfo extends Component {
                         <p>Position: {interview.position}</p>
                         <p>Salary: {interview.salary}</p>
                         <p>Day: {interview.day}</p>
+                        <NewReview interviewId={interview.id} history={this.props.history}/>
                     </div>
                 </Title>
             </Wrapper>
