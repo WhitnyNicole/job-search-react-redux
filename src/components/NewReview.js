@@ -21,7 +21,7 @@ class NewReview extends Component {
         this.state = {
             inquiry: " ",
             answer: " ",
-            interview: props.interview
+            interview_id: props.interviewId
     }
 }
 
@@ -31,22 +31,10 @@ class NewReview extends Component {
         })
     }
 
-    // submit = e => {
-    //     e.preventDefault()
-    //     this.props.createReview(this.state, this.props.history)
-    // }
-
     submit = e => {
         e.preventDefault()
-        const { interview } = this.props;
-        //check that the interview is being passed down as a prop
-        let newState = {
-          ...this.state,
-          interview: interview
-          };
-        this.props.createReview(this.newState, this.props.history)
-        }
-
+        this.props.createReview(this.state, this.props.history)
+    }
 
     render() {
         return (
