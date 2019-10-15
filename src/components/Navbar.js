@@ -26,9 +26,6 @@ const Navbar = () => (
           <Link to="/interviews">My Interviews</Link>
         </li>
         <li>
-          <Link to="/reviews/new">Create a Review</Link>
-        </li>
-        <li>
           <Link to="/reviews">My Reviews</Link>
         </li>
       </ul>
