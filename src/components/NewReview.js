@@ -19,8 +19,8 @@ class NewReview extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            inquiry: " ",
-            answer: " ",
+            inquiry: "",
+            answer: "",
             interview_id: props.interviewId
     }
 }
@@ -48,7 +48,8 @@ class NewReview extends Component {
                                 onChange={this.handleChange}
                                 required 
                                 type="text" 
-                                name="inquiry" 
+                                name="inquiry"
+                                placeholder={'Why do you want to work for us'} 
                                 value={this.state.inquiry} 
                             />
                             <br />
@@ -57,7 +58,8 @@ class NewReview extends Component {
                                 onChange={this.handleChange}
                                 type="text"
                                 required
-                                name="answer" 
+                                name="answer"
+                                placeholder={'Because the company is amazing'}
                                 value={this.state.answer} 
                             />
                             <br />
