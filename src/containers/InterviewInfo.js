@@ -18,10 +18,10 @@ class InterviewInfo extends Component {
     render() {
         const { interview, loading } = this.props  
         if (loading && !interview) {
-            return <p>Loading...</p>
+            return <h1>Loading...</h1>
         }
         if (!loading && !interview) {
-            return <p> No Interview Yet!</p>
+            return <h1> No Interview Yet!</h1>
         }
 
         return (
@@ -33,7 +33,7 @@ class InterviewInfo extends Component {
                         <p>Location: {interview.location}</p>
                         <p>Position: {interview.position}</p>
                         <p>Salary: {interview.salary}</p>
-                        <p>Day: {interview.day}</p>
+                        <p>Day: {interview.pretty_created_date}</p>
                         <NewReview interviewId={interview.id} history={this.props.history}/>
                     </div>
                 </Title>
