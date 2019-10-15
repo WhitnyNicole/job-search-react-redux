@@ -8,16 +8,3 @@ export default (state = { reviews: [] }, action) => {
             return state;
     }
 }
-
-// case "REVIEW_CREATE_SUCCESS":
-// let interviews = state.interviews.map(interview => {
-//     if (interview.id === action.payload.id) {
-//     } else {
-//         return interview
-        // }
-//    })
-// return {...state, interviews: interviews}
-//    default:
-// return state;
-// }
-// }
