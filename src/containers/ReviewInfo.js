@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from "styled-components"
 
@@ -12,29 +12,38 @@ const Wrapper = styled.section`
   padding: 4em;
 `;
 
-function ReviewInfo(props) {
-    if (!props.review) {
-        return <p>Loading...</p>
+class ReviewInfo extends Component {
+
+    render() {
+        const { review, loading } = this.props  
+        if (loading && !review) {
+            return <h1>Loading...</h1>
+        }
+        if (!loading && !review) {
+            return <h1> No Review Yet!</h1>
+        }
+
+        return (
+            <Wrapper>
+                <Title>
+                    <div>
+                        <h1>{review.interview.company_name} Review</h1>
+                        <p>Inquiry: {review.inquiry}</p>
+                        <p>Answer: {review.answer}</p>
+                    </div>
+                </Title>
+            </Wrapper>
+       )
     }
-    return (
-        <Wrapper>
-            <Title>
-                <div>
-                    <h1>{props.review.interview.company_name} Review</h1>
-                    <p>Inquiry: {props.review.inquiry}</p>
-                    <p>Answer: {props.review.answer}</p>
-                </div>
-            </Title>
-        </Wrapper>
-    )
 }
 
 const mapStateToProps = (state, props) => {
     const id = parseInt(props.match.params.id)
     const review = state.reviewsReducer.reviews.find(review => review.id === id)
-    console.log(props.review)
     return {
-        review
+        review,
+        loading: state.loading
+
     }
 }
 
