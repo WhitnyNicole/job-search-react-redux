@@ -17,7 +17,7 @@ const Wrapper = styled.section`
 class NewInterview extends Component {
 
     state ={
-        company_name: " ",
+        company_name: "",
         location: "",
         salary: "",
         day: "",
@@ -46,7 +46,8 @@ class NewInterview extends Component {
                         onChange={this.handleChange}
                         required 
                         type="text" 
-                        name="company_name" 
+                        name="company_name"
+                        placeholder={'Google'}
                         value={this.state.company_name} 
                     />
                     <br />
@@ -55,23 +56,25 @@ class NewInterview extends Component {
                         onChange={this.handleChange}
                         type="text"
                         required
-                        name="location" 
+                        name="location"
+                        placeholder={'New York City'} 
                         value={this.state.location} 
                     />
                     <br />
                     <label>Salary:</label>
                     <input
                         onChange={this.handleChange}
-                        type="text"
+                        type="number"
                         required 
                         name="salary" 
+                        placeholder={'90000'}
                         value={this.state.salary} 
                     />
                     <br />
                     <label>Date:</label>
                     <input
                         onChange={this.handleChange}
-                        type="text"
+                        type="date"
                         required 
                         name="day" 
                         value={this.state.day} 
@@ -82,7 +85,8 @@ class NewInterview extends Component {
                         onChange={this.handleChange}
                         type="text"
                         required 
-                        name="position" 
+                        name="position"
+                        placeholder={'Software Engineer'} 
                         value={this.state.position} 
                     />
                     <br />
