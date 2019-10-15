@@ -33,7 +33,7 @@ class InterviewInfo extends Component {
                         <p>Location: {interview.location}</p>
                         <p>Position: {interview.position}</p>
                         <p>Salary: {interview.salary}</p>
-                        <p>Day: {interview.pretty_created_date}</p>
+                        <p>Date: {interview.pretty_created_date}</p>
                         <NewReview interviewId={interview.id} history={this.props.history}/>
                     </div>
                 </Title>
