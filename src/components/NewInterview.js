@@ -21,7 +21,7 @@ class NewInterview extends Component {
         location: "",
         salary: "",
         day: "",
-        position: "",
+        position: ""
     }
 
     handleChange = e => {
