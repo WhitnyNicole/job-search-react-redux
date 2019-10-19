@@ -73,13 +73,4 @@ class NewReview extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-      interview: state.interviewsReducer.interview
-    };
-  };
-
-
-export default connect(mapStateToProps, {
-    createReview
-})(NewReview)
+export default connect(null,{createReview})(NewReview)
